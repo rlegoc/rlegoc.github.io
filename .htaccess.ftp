@@ -1,0 +1,4 @@
+# ne pas supprimer ce fichier ... en cas de suppression, celui-ci sera restaure automatiquement dans sa version la plus recente
+# ci-dessous la liste des sesames (identifiant ldap) autorises a se connecter en ftp a la racine du site
+webman
+rlegoc
