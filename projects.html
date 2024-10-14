@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romain Le Goc - Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery-container {
+            overflow: hidden;
+            position: relative;
+            padding: 40px;
+            background-color: #cce6ff;
+        }
+        .gallery {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease-in-out;
+            width: fit-content;
+        }
+        .project {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .project:hover {
+            transform: scale(1.05);
+        }
+        .project-bg {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(70%);
+            position: relative;
+        }
+        .project-title-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold;
+        }
+        .project-content {
+            padding: 20px;
+        }
+        .project-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .project-description {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .project-links {
+            margin-top: 15px;
+        }
+        .project-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .scroll-button.left {
+            left: 0;
+        }
+        .scroll-button.right {
+            right: 0;
+        }
+        .project-details {
+            padding: 40px;
+            background: #ffffff;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            line-height: 1.6;
+            border: 1px solid #99ccff;
+            display: block;
+        }
+        .project-details h2 {
+            color: #003366;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+            text-decoration: none;
+        }
+        .project-thumbnail {
+            width: 20%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .project-details p {
+            font-size: 1.1em;
+            color: #444;
+        }
+        .project-details a {
+            color: #003366;
+            font-weight: bold;
+        }
+        .project-details a:hover {
+            color: #4CAF50;
+        }
+        .separator {
+            height: 3px;
+            background: #0066cc;
+            width: 80%;
+            margin: 40px auto;
+            border-radius: 2px;
+        }
+    </style>
+    <script>
+        function scrollGallery(direction) {
+            const gallery = document.querySelector('.gallery');
+            const scrollAmount = 320; // Scroll amount for each button click
+            const currentTransform = getComputedStyle(gallery).transform;
+            const matrixValues = currentTransform.match(/matrix.*\((.+)\)/);
+            let currentX = matrixValues ? parseFloat(matrixValues[1].split(', ')[4]) : 0;
+            
+            if (direction === 'left') {
+                currentX += scrollAmount;
+            } else if (direction === 'right') {
+                currentX -= scrollAmount;
+            }
+            
+            gallery.style.transform = `translateX(${currentX}px)`;
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Romain Le Goc - Projects</h1>
+        <p>Discover some of my R&D projects and contributions to software development.</p>
+    </div>
+    <div class="gallery-container">
+        <button class="scroll-button left" onclick="scrollGallery('left')"><i class="fas fa-chevron-left"></i></button>
+        <div class="gallery">
+            <div class="project">
+                <div class="project-bg" style="background-image: url('https://fractorylab.org/wp-content/uploads/2024/09/PK1.png');">
+                    <div class="project-title-overlay">Hydro-Mechanical Effects in Fractured Media</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">A comprehensive investigation into the hydro-mechanical behavior of fractured media, using numerical simulations to understand the impacts on fluid flow and structural integrity.</p>
+                    <div class="project-links">
+                        <a href="#hydro-mechanical" target="_self"><i class="fas fa-info-circle"></i> More Info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-bg" style="background-image: url('https://fractorylab.org/wp-content/uploads/2022/03/siteModelling-Copie-2.png');">
+                    <div class="project-title-overlay">Site Modelling and DFN Generation</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">Developing advanced methods for site modeling and discrete fracture network (DFN) generation to support geological assessments and engineering applications.</p>
+                    <div class="project-links">
+                        <a href="#site-modelling" target="_self"><i class="fas fa-info-circle"></i> More Info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-bg" style="background-image: url('https://fractorylab.org/wp-content/uploads/2020/01/geneticModelsImage1.gif');">
+                    <div class="project-title-overlay">Genetic Discrete Fracture Networks</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">Using genetic algorithms to optimize the generation of discrete fracture networks for more accurate geological modeling and simulation.</p>
+                    <div class="project-links">
+                        <a href="#genetic-dfn" target="_self"><i class="fas fa-info-circle"></i> More Info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-bg" style="background-image: url('https://fractorylab.org/wp-content/uploads/2022/03/ParticlesVelocities.png');">
+                    <div class="project-title-overlay">Site Modelling for Flow and Transport</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">Exploring flow and transport phenomena in site models to enhance our understanding of fluid movement in fractured rock formations.</p>
+                    <div class="project-links">
+                        <a href="#flow-transport" target="_self"><i class="fas fa-info-circle"></i> More Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="scroll-button right" onclick="scrollGallery('right')"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div id="hydro-mechanical" class="project-details">
+        <div class="project-thumbnail" style="background-image: url('https://fractorylab.org/wp-content/uploads/2024/09/PK1.png');"></div>
+        <h2>Hydro-Mechanical Effects in Fractured Media</h2>
+        <p>This project investigates the hydro-mechanical behavior of fractured media, focusing on how fractures influence both the mechanical stability of rock and fluid flow. Using advanced numerical simulations, the project explores the coupled effects between fluid movement and mechanical deformation, providing insights for applications in geotechnical engineering and natural resource management.</p>
+        <p>For more information, visit the full project page: <a href="https://fractorylab.org/project/hydro-mechanical-effects-in-fractured-media/" target="_blank">Hydro-Mechanical Effects in Fractured Media</a></p>
+    </div>
+    <div class="separator"></div>
+    <div id="site-modelling" class="project-details">
+        <div class="project-thumbnail" style="background-image: url('https://fractorylab.org/wp-content/uploads/2022/03/siteModelling-Copie-2.png');"></div>
+        <h2>Site Modelling and DFN Generation</h2>
+        <p>This project focuses on the development of advanced methods for site modeling and discrete fracture network (DFN) generation. These techniques are essential for supporting geological assessments and engineering applications by providing realistic representations of fractured rock systems.</p>
+        <p>For more information, visit the full project page: <a href="https://fractorylab.org/project/site-modelling-dfn-generation/" target="_blank">Site Modelling and DFN Generation</a></p>
+    </div>
+    <div class="separator"></div>
+    <div id="genetic-dfn" class="project-details">
+        <div class="project-thumbnail" style="background-image: url('https://fractorylab.org/wp-content/uploads/2020/01/geneticModelsImage1.gif');"></div>
+        <h2>Genetic Discrete Fracture Networks</h2>
+        <p>This project uses genetic algorithms to optimize the generation of discrete fracture networks, improving geological modeling and simulation accuracy. The use of genetic algorithms allows for efficient exploration of fracture network configurations, leading to more realistic geological assessments.</p>
+        <p>For more information, visit the full project page: <a href="https://fractorylab.org/project/genetic-discrete-fracture-networks/" target="_blank">Genetic Discrete Fracture Networks</a></p>
+    </div>
+    <div class="separator"></div>
+    <div id="flow-transport" class="project-details">
+        <div class="project-thumbnail" style="background-image: url('https://fractorylab.org/wp-content/uploads/2022/03/ParticlesVelocities.png');"></div>
+        <h2>Site Modelling for Flow and Transport</h2>
+        <p>This project investigates flow and transport phenomena in geological site models, enhancing our understanding of fluid movement within fractured rock formations. The findings contribute to improving predictions for natural resource management and environmental safety.</p>
+        <p>For more information, visit the full project page: <a href="https://fractorylab.org/project/site-modelling-flow-transport/" target="_blank">Site Modelling for Flow and Transport</a></p>
+    </div>
+</body>
+</html>
